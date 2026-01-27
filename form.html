@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicação para mentoria em licitações">
+    <title>Aplicação para Mentoria - Mentoria em Licitação</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">📋</span>
+                    <span>Mentoria Licitação</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="form-section">
+        <div class="container container-small">
+            <div class="form-container">
+                <!-- Barra de Progresso -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="form-header">
+                    <div class="form-icon">🛡️</div>
+                    <h1>Aplicação para Mentoria</h1>
+                    <p>
+                        Preencha o formulário abaixo com atenção. Nosso time analisará
+                        suas respostas para identificar se você tem o perfil ideal.
+                    </p>
+                </div>
+
+                <!-- Alerta de erro dinâmico -->
+                <div id="formAlert" class="alert"></div>
+
+                <form id="leadForm" novalidate>
+                    <!-- Nome -->
+                    <div class="form-group">
+                        <label for="nome" class="form-label">Nome Completo <span class="required">*</span></label>
+                        <input type="text" id="nome" name="nome" class="form-input" placeholder="Seu nome" required maxlength="100">
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="form-group">
+                        <label for="telefone" class="form-label">WhatsApp <span class="required">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(11) 99999-9999" required maxlength="16">
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-mail Corporativo <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com" required maxlength="100">
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- Renda Mensal -->
+                    <div class="form-group">
+                        <label for="faturamentoAtual" class="form-label">Renda Mensal Atual <span class="required">*</span></label>
+                        <select id="faturamentoAtual" name="faturamentoAtual" class="form-select" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="0">Iniciando (R$ 0)</option>
+                            <option value="5000">Até R$ 5.000</option>
+                            <option value="10000">R$ 5.000 - R$ 10.000</option>
+                            <option value="20000">R$ 10.000 - R$ 20.000</option>
+                            <option value="50000">R$ 20.000 - R$ 50.000</option>
+                            <option value="100000">Acima de R$ 50.000</option>
+                        </select>
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- Meta de Faturamento -->
+                    <div class="form-group">
+                        <label for="metaFaturamento" class="form-label">Meta de Faturamento <span class="required">*</span></label>
+                        <select id="metaFaturamento" name="metaFaturamento" class="form-select" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="10000">Até R$ 10.000/mês</option>
+                            <option value="20000">R$ 10.000 - R$ 20.000/mês</option>
+                            <option value="50000">R$ 20.000 - R$ 50.000/mês</option>
+                            <option value="100000">R$ 50.000 - R$ 100.000/mês</option>
+                            <option value="200000">Acima de R$ 100.000/mês</option>
+                        </select>
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- Conhecimento -->
+                    <div class="form-group">
+                        <label class="form-label">Já participou de alguma licitação? <span class="required">*</span></label>
+                        <div class="form-radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="conhecimento" value="sim" required>
+                                <span>Sim</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="conhecimento" value="nao" required>
+                                <span>Não</span>
+                            </label>
+                        </div>
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- Ramo -->
+                    <div class="form-group">
+                        <label for="ramo" class="form-label">Qual seu ramo de atuação? <span class="required">*</span></label>
+                        <input type="text" id="ramo" name="ramo" class="form-input" placeholder="Ex: Construção, Tecnologia..." required maxlength="100">
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- Objetivo -->
+                    <div class="form-group">
+                        <label class="form-label">Qual seu principal objetivo? <span class="required">*</span></label>
+                        <div class="form-radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="objetivo" value="renda-extra" required>
+                                <span>Renda extra</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="objetivo" value="viver-disso" required>
+                                <span>Quero viver disso</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="objetivo" value="faturar-mais" required>
+                                <span>Já vivo disso e quero escalar</span>
+                            </label>
+                        </div>
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- Horário -->
+                    <div class="form-group">
+                        <label class="form-label">Melhor horário para contato <span class="required">*</span></label>
+                        <div class="form-radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="horario" value="manha" required>
+                                <span>Manhã (8h - 12h)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="horario" value="tarde" required>
+                                <span>Tarde (12h - 18h)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="horario" value="noite" required>
+                                <span>Noite (18h - 21h)</span>
+                            </label>
+                        </div>
+                        <div class="form-error"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large btn-block">
+                        Enviar Candidatura
+                    </button>
+
+                    <p class="text-center mt-3" style="font-size: 0.8rem; color: var(--text-secondary);">
+                        🔒 Seus dados estão seguros e protegidos.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overlay de Carregamento -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Analisando seu perfil...</p>
+        </div>
+    </div>
+
+    <!-- Scripts na ordem correta -->
+    <script src="score.js"></script>
+    <script src="notifications.js"></script>
+    <script src="api.js"></script>
+    <script src="form.js"></script>
+</body>
+</html>
