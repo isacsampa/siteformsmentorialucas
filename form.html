@@ -27,7 +27,6 @@
     <section class="form-section">
         <div class="container container-small">
             <div class="form-container">
-                <!-- Barra de Progresso -->
                 <div class="progress-container">
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 0%"></div>
@@ -38,68 +37,50 @@
                     <div class="form-icon">🛡️</div>
                     <h1>Aplicação para Mentoria</h1>
                     <p>
-                        Preencha o formulário abaixo com atenção. Nosso time analisará
-                        suas respostas para identificar se você tem o perfil ideal.
+                        Preencha o formulário abaixo com atenção. Pois eu pessoalmente analisarei se você tem o perfil ideal.
                     </p>
                 </div>
 
-                <!-- Alerta de erro dinâmico -->
                 <div id="formAlert" class="alert"></div>
 
                 <form id="leadForm" novalidate>
-                    <!-- Nome -->
+                    <!-- 1. Nome -->
                     <div class="form-group">
-                        <label for="nome" class="form-label">Nome Completo <span class="required">*</span></label>
-                        <input type="text" id="nome" name="nome" class="form-input" placeholder="Seu nome" required maxlength="100">
+                        <label for="nome" class="form-label">Qual o seu nome? <span class="required">*</span></label>
+                        <input type="text" id="nome" name="nome" class="form-input" placeholder="Digite seu nome completo" required maxlength="100">
                         <div class="form-error"></div>
                     </div>
 
-                    <!-- WhatsApp -->
+                    <!-- 2. Email -->
                     <div class="form-group">
-                        <label for="telefone" class="form-label">WhatsApp <span class="required">*</span></label>
-                        <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(11) 99999-9999" required maxlength="16">
-                        <div class="form-error"></div>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="form-group">
-                        <label for="email" class="form-label">E-mail Corporativo <span class="required">*</span></label>
+                        <label for="email" class="form-label">Qual o seu melhor e-mail? <span class="required">*</span></label>
                         <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com" required maxlength="100">
                         <div class="form-error"></div>
                     </div>
 
-                    <!-- Renda Mensal -->
+                    <!-- 3. Objetivo -->
                     <div class="form-group">
-                        <label for="faturamentoAtual" class="form-label">Renda Mensal Atual <span class="required">*</span></label>
-                        <select id="faturamentoAtual" name="faturamentoAtual" class="form-select" required>
-                            <option value="" disabled selected>Selecione...</option>
-                            <option value="0">Iniciando (R$ 0)</option>
-                            <option value="5000">Até R$ 5.000</option>
-                            <option value="10000">R$ 5.000 - R$ 10.000</option>
-                            <option value="20000">R$ 10.000 - R$ 20.000</option>
-                            <option value="50000">R$ 20.000 - R$ 50.000</option>
-                            <option value="100000">Acima de R$ 50.000</option>
-                        </select>
+                        <label class="form-label">Qual o seu objetivo com o mercado de licitação? <span class="required">*</span></label>
+                        <div class="form-radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="objetivo" value="renda-extra" required>
+                                <span>Renda extra</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="objetivo" value="viver-disso" required>
+                                <span>Quero viver disso</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="objetivo" value="faturar-mais" required>
+                                <span>Já vivo disso e quero faturar ainda mais</span>
+                            </label>
+                        </div>
                         <div class="form-error"></div>
                     </div>
 
-                    <!-- Meta de Faturamento -->
+                    <!-- 4. Conhecimento -->
                     <div class="form-group">
-                        <label for="metaFaturamento" class="form-label">Meta de Faturamento <span class="required">*</span></label>
-                        <select id="metaFaturamento" name="metaFaturamento" class="form-select" required>
-                            <option value="" disabled selected>Selecione...</option>
-                            <option value="10000">Até R$ 10.000/mês</option>
-                            <option value="20000">R$ 10.000 - R$ 20.000/mês</option>
-                            <option value="50000">R$ 20.000 - R$ 50.000/mês</option>
-                            <option value="100000">R$ 50.000 - R$ 100.000/mês</option>
-                            <option value="200000">Acima de R$ 100.000/mês</option>
-                        </select>
-                        <div class="form-error"></div>
-                    </div>
-
-                    <!-- Conhecimento -->
-                    <div class="form-group">
-                        <label class="form-label">Já participou de alguma licitação? <span class="required">*</span></label>
+                        <label class="form-label">Você já possui algum conhecimento sobre como entrar e participar do mercado de licitação? <span class="required">*</span></label>
                         <div class="form-radio-group">
                             <label class="radio-option">
                                 <input type="radio" name="conhecimento" value="sim" required>
@@ -113,51 +94,58 @@
                         <div class="form-error"></div>
                     </div>
 
-                    <!-- Ramo -->
+                    <!-- 5. Ramo -->
                     <div class="form-group">
-                        <label for="ramo" class="form-label">Qual seu ramo de atuação? <span class="required">*</span></label>
-                        <input type="text" id="ramo" name="ramo" class="form-input" placeholder="Ex: Construção, Tecnologia..." required maxlength="100">
+                        <label for="ramo" class="form-label">Qual o seu ramo de atuação? <span class="required">*</span></label>
+                        <input type="text" id="ramo" name="ramo" class="form-input" placeholder="Ex: Construção, Tecnologia, Serviços..." required maxlength="100">
                         <div class="form-error"></div>
                     </div>
 
-                    <!-- Objetivo -->
+                    <!-- 6. Faturamento Atual -->
                     <div class="form-group">
-                        <label class="form-label">Qual seu principal objetivo? <span class="required">*</span></label>
-                        <div class="form-radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="objetivo" value="renda-extra" required>
-                                <span>Renda extra</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="objetivo" value="viver-disso" required>
-                                <span>Quero viver disso</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="objetivo" value="faturar-mais" required>
-                                <span>Já vivo disso e quero escalar</span>
-                            </label>
-                        </div>
+                        <label for="faturamentoAtual" class="form-label">Qual seu faturamento atual? <span class="required">*</span></label>
+                        <select id="faturamentoAtual" name="faturamentoAtual" class="form-select" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="0-5000">0 a 5.000</option>
+                            <option value="5000-10000">5.000 a 10.000</option>
+                            <option value="10000+">Mais de 10.000</option>
+                        </select>
                         <div class="form-error"></div>
                     </div>
 
-                    <!-- Horário -->
+                    <!-- 7. Meta de Faturamento -->
                     <div class="form-group">
-                        <label class="form-label">Melhor horário para contato <span class="required">*</span></label>
-                        <div class="form-radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="horario" value="manha" required>
-                                <span>Manhã (8h - 12h)</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="horario" value="tarde" required>
-                                <span>Tarde (12h - 18h)</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="horario" value="noite" required>
-                                <span>Noite (18h - 21h)</span>
-                            </label>
-                        </div>
+                        <label for="metaFaturamento" class="form-label">Qual é a sua meta de faturamento com o mercado de licitação? <span class="required">*</span></label>
+                        <select id="metaFaturamento" name="metaFaturamento" class="form-select" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="0-5000">0 a 5.000</option>
+                            <option value="5000-10000">5.000 a 10.000</option>
+                            <option value="10000+">Mais de 10.000</option>
+                        </select>
                         <div class="form-error"></div>
+                    </div>
+
+                    <!-- Mensagem de transição -->
+                    <div class="transition-message">
+                        <p><strong>Excelente!</strong> Coletamos as respostas e vamos entrar em contato em breve.</p>
+                    </div>
+
+                    <!-- 8. WhatsApp -->
+                    <div class="form-group">
+                        <label for="telefone" class="form-label">Deixe seu WhatsApp com o DDD abaixo. <span class="required">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(11) 99999-9999" required maxlength="16">
+                        <div class="form-error"></div>
+                    </div>
+
+                    <!-- CTA Agenda -->
+                    <div class="cta-agenda">
+                        <p>
+                            Se você tem <strong>urgência em começar a ganhar processos de licitação</strong>, 
+                            existe um caminho para "furar a fila". Clique no link abaixo e marque nossa reunião on-line.
+                        </p>
+                        <a href="https://calendar.app.google/TYFCiuD2D4dy9dWy5" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block">
+                            📅 Agendar Reunião Agora
+                        </a>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-large btn-block">
@@ -172,7 +160,6 @@
         </div>
     </section>
 
-    <!-- Overlay de Carregamento -->
     <div id="loadingOverlay" class="loading-overlay">
         <div class="loading-content">
             <div class="loading-spinner"></div>
@@ -180,9 +167,7 @@
         </div>
     </div>
 
-    <!-- Scripts na ordem correta -->
     <script src="score.js"></script>
-    <script src="notifications.js"></script>
     <script src="api.js"></script>
     <script src="form.js"></script>
 </body>
